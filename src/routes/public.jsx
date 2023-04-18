@@ -20,7 +20,6 @@ const Main = () => {
           </div>
         }
       >
-        {/* <h1 className="">Testing</h1> */}
         <Outlet />
       </Suspense>
     </div>
