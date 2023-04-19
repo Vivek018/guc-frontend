@@ -1,4 +1,4 @@
-import { InputField } from "@/components/forms/InputField";
+import { InputField } from "@/components/ui/InputField";
 import { Button } from "@/components/ui/Button";
 
 import sendMail from "@/assets/icons/sendMail.svg";
