@@ -4,7 +4,7 @@ export const routes = {
   index: '/',
   projects: '/projects',
   userProjects: '/userProjects',
-  project: "/projects/:projectId",
+  project: "/project",
   login: '/login'
 }
 

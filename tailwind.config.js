@@ -10,9 +10,11 @@ export default {
     },
     colors: {
       transparent: "none",
+      inherit: "inherit",
       white: "#FFFFFF",
       black: "#000000",
       dark: "#1E2022",
+      dim: "#D9D9D9",
       "cool-white": "#CFD0D3",
       "subtle-white": "#EFF2F2",
       gray: "#77838F",
@@ -28,6 +30,7 @@ export default {
       "check-icon": "0px 7.5px 20px rgba(0, 0, 0, 0.16)",
     },
     borderRadius: {
+      none: "0px",
       xs: "2px",
       sm: "4px",
       md: "8px",
@@ -37,11 +40,12 @@ export default {
       "pop-up": "25px",
       "3xl": "32px",
       search: "60px",
+      full: "999px",
     },
     fontSize: {
       xs: ["10px", { lineHeight: "10px" }],
       sm: ["12px", { lineHeight: "12px" }],
-      md: ["14px", { lineHeight: "21px" }],
+      md: ["14px", { lineHeight: "14px" }],
       "md-line-height": ["14px", { lineHeight: "24px" }],
       lg: ["16px", { lineHeight: "22px" }],
       "lg-line-height": ["17px", { lineHeight: "27px" }],
@@ -56,16 +60,18 @@ export default {
       "7xl": ["68px", { lineHeight: "72px" }],
     },
     fontFamily: {
-      poppins: 'Poppins, sans-serif',
-      'dm-sans': 'DMSans, sans-serif',
+      poppins: "Poppins, sans-serif",
+      "dm-sans": "DMSans, sans-serif",
     },
     extend: {
       backgroundImage: {
-        "linear-gradient": "122.54deg, #222737 32.41%, #000000 129.9%",
+        "button-linear-gradient": "linear-gradient(180deg, #00CAAC 0%, #01B5AE 100%), linear-gradient(0deg, rgba(61, 67, 84, 0.2), rgba(61, 67, 84, 0.2))",
+        "linear-gradient":
+          "linear-gradient(122.54deg, #222737 32.41%, #000000 129.9%)",
         "radial-gradient":
-          "63.37% 63.37% at 50% 50.07%, rgba(219, 243, 239, 0.5) 8.25%, rgba(219, 243, 239, 0) 100%",
+          "radial-gradient(63.37% 63.37% at 50% 50.07%, rgba(219, 243, 239, 0.5) 8.25%, rgba(219, 243, 239, 0) 100%)",
         "calc-radial-gradient":
-          "63.37% 63.37% at 50% 50.07%, #DBF3EF 8.25%, rgba(219, 243, 239, 0) 100%)",
+          "radial-gradient(63.37% 63.37% at 50% 50.07%, #DBF3EF 8.25%, rgba(219, 243, 239, 0) 100%))",
       },
     },
   },
