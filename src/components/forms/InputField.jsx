@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const inputFieldVariants = cva(
-  "bg-white flex justify-between items-center w-full px-1 mt-1",
+  "font-dm-sans text-lg bg-white flex justify-between items-center w-full px-1 mt-1 focus-within:text-dark/75 text-gray",
   {
     variants: {
       variant: {
@@ -25,7 +25,7 @@ const inputVariants = cva(
     variants: {
       variant: {
         outline: "text-black",
-        search: "text-gray mx-6 text-xl",
+        search: "placeholder:text-inherit mx-6 text-xl",
         'send-email': "text-black",
         'login-email': "bg-linear-gradient placeholder:text-white/80 text-white text-2xl font-semibold",
       },

@@ -25,6 +25,7 @@ export default {
       "light-green": "#F1FAF9",
     },
     boxShadow: {
+      none: "none",
       lg: "0px 2px 48px rgba(0, 0, 0, 0.06)",
       card: "0px 2px 4px rgba(220, 219, 222, 0.31)",
       search: "0px 4px 4px rgba(130, 134, 157, 0.08)",

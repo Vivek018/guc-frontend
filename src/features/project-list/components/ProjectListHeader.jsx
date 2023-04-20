@@ -1,6 +1,6 @@
 import { ListTitle } from "@/components/list/ListTitle";
 
-const ProjectListHeader = () => {
+export const ProjectListHeader = () => {
   return (
     <ListTitle
       title="GREEN PROJECTS"
@@ -8,5 +8,3 @@ const ProjectListHeader = () => {
     />
   );
 };
-
-export default ProjectListHeader;

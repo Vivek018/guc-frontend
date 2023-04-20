@@ -14,7 +14,7 @@ const ErrorFallback = () => {
       role="alert"
     >
       <h2 className="text-lg font-semibold">Oops, something went wrong</h2>
-      <button className="mt-4" onClick={() => window.location.assign(window.location.origin)}>
+      <button className="mt-4" onClick={() => window.location.reload()}>
         Refresh
       </button>
     </div>
