@@ -26,7 +26,7 @@ export const ProjectList = () => {
       />
       <div className="flex mt-10">
       {categoriesData.map(({id, title}) => {
-        return <Button className="mr-2.5" variant={id === selectedId ? 'default' : 'outline'} size="sm" onClick={() => setSelectedId(id)}>{title}</Button>
+        return <Button className="mr-2.5 border-2 border-green" variant={id === selectedId ? 'default' : 'outline'} size="sm" onClick={() => setSelectedId(id)}>{title}</Button>
       })}
       </div>
     </div>
