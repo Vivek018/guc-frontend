@@ -1,4 +1,4 @@
-export const API_URL = import.meta.env.REACT_APP_API_URL || "";
+export const API_URL = import.meta.env.VITE_API_URL || "";
 
 export const routes = {
   index: '/',
@@ -8,8 +8,8 @@ export const routes = {
   login: '/login'
 }
 
-export const endPoints = {
+export const endPoints = Object.freeze({
   login: "auth/login",
-  refresh: "/refresh",
-  getUser: "auth/me",
-}
+  user: "auth/me",
+  categories: "categories"
+});

@@ -20,7 +20,7 @@ const inputFieldVariants = cva(
 );
 
 const inputVariants = cva(
-  "bg-transparent outline-none flex-grow mx-2 h-8 text-md",
+  "bg-inherit outline-none flex-grow mx-2 h-8 text-md",
   {
     variants: {
       variant: {
@@ -46,6 +46,7 @@ export const InputField = forwardRef(({ label = "", labelClassName, variant, typ
           type={type}
           className={cn(inputVariants({variant, inputClassName}))}
           ref={ref}
+          autoComplete="off"
           {...props}
         />
         {buttonOrIcon}
@@ -57,7 +58,7 @@ export const InputField = forwardRef(({ label = "", labelClassName, variant, typ
 
 InputField.displayName = "InputField";
 
-export const InputLabel = ({text, name, variant, className, ...props}) => {
+const InputLabel = ({text, name, variant, className, ...props}) => {
   return (
     <label
         htmlFor={name}

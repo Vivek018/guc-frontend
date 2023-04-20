@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { routes } from "@/constants";
 import { lazyImport } from "@/utils/lazyImports";
 
-const { Auth } = lazyImport(() => import("@/features/auth"), "Auth");
+const { Auth } = lazyImport(() => import("@/features/login"), "Auth");
 const { Misc } = lazyImport(() => import('@/features/misc'), 'Misc');
 const { Project } = lazyImport(() => import('@/features/project'), 'Project');
 const { ProjectList } = lazyImport(() => import('@/features/project-list'), 'ProjectList');

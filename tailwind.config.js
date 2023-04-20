@@ -19,6 +19,7 @@ export default {
       "subtle-white": "#EFF2F2",
       gray: "#77838F",
       "light-gray": "#9EA1B4",
+      "search-gray": "#F3F8F7",
       green: "#17C5A5",
       "dark-green": "#008370",
       "light-green": "#F1FAF9",

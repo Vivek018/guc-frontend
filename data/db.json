@@ -1,0 +1,54 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Disaster"
+    },
+    {
+      "id": 2,
+      "title": "Children"
+    },
+    {
+      "id": 3,
+      "title": "Food Crisis"
+    },
+    {
+      "id": 4,
+      "title": "Health"
+    },
+    {
+      "id": 5,
+      "title": "Education"
+    },
+    {
+      "id": 6,
+      "title": "Homeless"
+    },
+    {
+      "id": 7,
+      "title": "Animal"
+    },
+    {
+      "id": 8,
+      "title": "Pandemic"
+    },
+    {
+      "id": 9,
+      "title": "War Crisis"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Flood in Lamboa",
+      "brief": "Lamboa community needs your help for crisis management from 3 days of non-stop flooding.",
+      "category_id": "2",
+      "total_donations": "230",
+      "donation_amount_raised": "$466,808",
+      "donation_total_amount": "$500,000",
+      "latest_donation_time": "2023-11-11 23:23:23",
+      "published_date": "2013-11-11 23:23:23",
+      "thumbnail": "https://cdn.pixabay.com/photo/2023/04/16/09/54/bird-7929733_1280.jpg"
+    }
+  ]
+}

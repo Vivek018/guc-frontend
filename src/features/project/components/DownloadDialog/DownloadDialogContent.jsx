@@ -1,4 +1,4 @@
-import { InputField } from '@/components/ui/InputField';
+import { InputField } from '@/components/forms/InputField';
 import { Button } from '@/components/ui/Button';
 import React from 'react'
 
