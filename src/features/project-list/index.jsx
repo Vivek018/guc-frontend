@@ -25,6 +25,12 @@ export const ProjectList = () => {
       <ProjectListContent
         selectedCategoryId={selectedCategoryId}
         searchValue={searchValue}
+        handleChangeCategory={(id) => {
+          setSelectedCategoryId(id);
+        }}
+        handleChangeSearchValue={(val) => {
+          setSearchValue(val);
+        }}
       />
     </div>
   );

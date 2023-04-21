@@ -14,10 +14,11 @@ export const useProjectList = (options) => {
   return useQuery([endPoints.projectList], fetchProjectList, options);
 };
 
-export const useProjectListFilter = (id, searchValue) => {
+export const useProjectListFilter = (id, searchValue, options) => {
   const searchTrimmed = searchValue?.trim();
   return useQuery(
     [endPoints.projectList, id, searchTrimmed],
-    fetchProjectListFilter
+    fetchProjectListFilter,
+    options
   );
 };

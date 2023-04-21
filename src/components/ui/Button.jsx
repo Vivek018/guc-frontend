@@ -3,14 +3,14 @@ import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const buttonVariants = cva(
-  "font-dm-sans h-11 flex justify-center items-center text-lg transition-all outline-transparent",
+  "font-dm-sans h-11 flex justify-center items-center text-lg transition-all outline-transparent disabled:pointer-events-none",
   {
     variants: {
       variant: {
         default: "bg-green text-white hover:brightness-95 active:brightness-90",
         outline:
           "text-green bg-white border-2 border-green hover:brightness-95 active:brightness-90",
-        ghost: "bg-transparent text-white hover:bg-green/40  active:bg-green/50",
+        ghost: "bg-transparent text-white hover:bg-green/40  active:bg-green/50 ",
       },
       size: {
         default: "w-32 px-4 py-1 rounded-2xl font-medium",

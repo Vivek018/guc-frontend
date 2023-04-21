@@ -16,7 +16,7 @@ export const fetchProjectList = () => {
 export const fetchProjectListFilter = ({queryKey}) => {
   const id = queryKey[1];
   const searchValue = queryKey[2];
-  console.log(id, searchValue);
+  
   if (id && !searchValue) {
     return axios.get(
       `${endPoints.projectList}?${categoryId}=${id}`
