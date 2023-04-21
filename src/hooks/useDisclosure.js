@@ -9,11 +9,14 @@ export const useDisclosure = (initial = false) => {
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
 
-  const handleEscKey = useCallback(({key}) => {
-    if (key === KEY_NAME_ESC) {
-      close();
-    }
-  }, [close]);
+  const handleEscKey = useCallback(
+    ({ key }) => {
+      if (key === KEY_NAME_ESC) {
+        close();
+      }
+    },
+    [close]
+  );
 
   useEffect(() => {
     document.addEventListener(KEY_EVENT_TYPE, handleEscKey, false);

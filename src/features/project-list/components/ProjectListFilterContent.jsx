@@ -16,7 +16,7 @@ export const ProjectListFilterContent = ({
 
   const handleSearchChange = (e) => {
     handleChangeSearchValue(e.target.value.replace(/[^a-z|0-9| ]/gi, ""));
-  }
+  };
 
   return (
     <div className="flex flex-col items-center mt-10">

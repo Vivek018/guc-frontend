@@ -1,6 +1,11 @@
 import { useMemo } from "react";
 import queryString from "query-string";
-import { useLocation, useNavigate, useParams, useMatch } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useMatch,
+} from "react-router-dom";
 
 export const useRouter = () => {
   const params = useParams();
@@ -16,13 +21,10 @@ export const useRouter = () => {
       query: {
         ...queryString.parse(location.search),
         ...params,
-      }
+      },
       match,
       location,
       navigate,
     };
   }, [params, location, navigate, match]);
 };
-
-
-

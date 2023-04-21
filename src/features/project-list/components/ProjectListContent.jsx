@@ -5,6 +5,7 @@ import { useQueryClient } from "react-query";
 import { endPoints } from "@/constants";
 import { ProjectListPagination } from "./ProjectListPagination";
 import { PAGE_SIZE } from "../constants";
+import { ProjectCardSkeleton } from "./ui/ProjectCardSkeleton";
 
 export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
   const [projectList, setProjectList] = useState(null);
@@ -14,7 +15,7 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     setCurrentPage(1);
   }, [selectedCategoryId, searchValue, setCurrentPage]);
 
-  const { data: projects, isLoading: isProjectLoading } = useProjectList();
+  const { data: projects, isFetching: isProjectFetching } = useProjectList();
 
   const currentProjectData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
@@ -22,7 +23,7 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     return projectList?.slice(firstPageIndex, lastPageIndex);
   }, [projectList, currentPage]);
 
-  const { data: projectFilteredList, isLoading: isProjectFilterLoading } =
+  const { data: projectFilteredList, isFetching: isProjectFilterFetching } =
     useProjectListFilter(selectedCategoryId, searchValue);
 
   useEffect(() => {
@@ -38,6 +39,18 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     projectFilteredList,
     setProjectList,
   ]);
+
+  if (isProjectFetching || isProjectFilterFetching) {
+    return (
+      <div className="min-h-[700px]">
+        <div className="grid grid-cols-3 auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px] px-[1%]">
+          {Array.from({ length: 3 }).map((val, index) => (
+            <ProjectCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[700px]">

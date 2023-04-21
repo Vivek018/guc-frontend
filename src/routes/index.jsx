@@ -6,4 +6,4 @@ export const AppRoutes = () => {
   const element = useRoutes([...publicRoutes]);
 
   return <>{element}</>;
-}
+};

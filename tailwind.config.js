@@ -67,7 +67,8 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "button-linear-gradient": "linear-gradient(180deg, #00CAAC 0%, #01B5AE 100%), linear-gradient(0deg, rgba(61, 67, 84, 0.2), rgba(61, 67, 84, 0.2))",
+        "button-linear-gradient":
+          "linear-gradient(180deg, #00CAAC 0%, #01B5AE 100%), linear-gradient(0deg, rgba(61, 67, 84, 0.2), rgba(61, 67, 84, 0.2))",
         "linear-gradient":
           "linear-gradient(122.54deg, #222737 32.41%, #000000 129.9%)",
         "radial-gradient":
@@ -75,8 +76,18 @@ export default {
         "calc-radial-gradient":
           "radial-gradient(63.37% 63.37% at 50% 50.07%, #DBF3EF 8.25%, rgba(219, 243, 239, 0) 100%))",
       },
+      animation: {
+        loader: "loader 0.6s infinite alternate",
+      },
+      keyframes: {
+        loader: {
+          to: {
+            opacity: 0.65,
+            transform: "translate3d(0, -1rem, 0)",
+          },
+        },
+      },
     },
   },
   plugins: [],
 };
-

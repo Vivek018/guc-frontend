@@ -1,18 +1,12 @@
-import { useCallback } from 'react';
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-} from 'react-query';
-
+import { useCallback } from "react";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 
 export const configureAuth = ({
-    userKey = ['authenticated-user'],
-    userFn,
-    loginFn,
-    logoutFn,
-  }) => {
-
+  userKey = ["authenticated-user"],
+  userFn,
+  loginFn,
+  logoutFn,
+}) => {
   const useUser = (options) => useQuery(userKey, userFn, options);
 
   const useLogin = (options) => {
@@ -56,4 +50,4 @@ export const configureAuth = ({
     useLogin,
     useLogout,
   };
-}
+};

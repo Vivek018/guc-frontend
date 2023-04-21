@@ -1,4 +1,4 @@
-const storagePrefix = 'guc_frontend_token';
+const storagePrefix = "guc_frontend_token";
 
 export const storage = {
   getToken: () => {

@@ -66,13 +66,12 @@ export const Misc = () => {
       </div>
     </div>
   );
-}
+};
 
 export const LoginEmailIcon = () => {
   return (
     <div className="bg-[#3F4856] w-10 h-10 grid place-content-center rounded-lg mr-3">
       <img src={loginMail} alt="login mail icon" />
     </div>
-  )
-}
-
+  );
+};

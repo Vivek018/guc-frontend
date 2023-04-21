@@ -1,5 +1,5 @@
-import { AppProvider } from '@/providers';
-import { AppRoutes } from '@/routes';
+import { AppProvider } from "@/providers";
+import { AppRoutes } from "@/routes";
 
 function App() {
   return (
@@ -7,6 +7,6 @@ function App() {
       <AppRoutes />
     </AppProvider>
   );
-};
+}
 
 export default App;

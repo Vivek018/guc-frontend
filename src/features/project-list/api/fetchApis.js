@@ -11,22 +11,18 @@ export const fetchCategories = () => {
 
 export const fetchProjectList = () => {
   return axios.get(endPoints.projectList);
-}
+};
 
-export const fetchProjectListFilter = ({queryKey}) => {
+export const fetchProjectListFilter = ({ queryKey }) => {
   const id = queryKey[1];
   const searchValue = queryKey[2];
-  
+
   if (id && !searchValue) {
-    return axios.get(
-      `${endPoints.projectList}?${categoryId}=${id}`
-    );
+    return axios.get(`${endPoints.projectList}?${categoryId}=${id}`);
   } else if (!id && searchValue) {
-    return axios.get(
-      `${endPoints.projectList}?${title}_like=${searchValue}`
-    );
+    return axios.get(`${endPoints.projectList}?${title}_like=${searchValue}`);
   }
   return axios.get(
     `${endPoints.projectList}?${title}_like=${searchValue}&${categoryId}=${id}`
   );
-}
+};
