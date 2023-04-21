@@ -6,14 +6,13 @@ import { endPoints } from "@/constants";
 import { ProjectListPagination } from "./ProjectListPagination";
 import { PAGE_SIZE } from "../constants";
 
-export const ProjectListContent = ({
-  selectedCategoryId,
-  searchValue,
-}) => {
+export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
   const [projectList, setProjectList] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const queryClient = useQueryClient();
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategoryId, searchValue, setCurrentPage]);
 
   const { data: projects, isLoading: isProjectLoading } = useProjectList();
 
@@ -40,10 +39,8 @@ export const ProjectListContent = ({
     setProjectList,
   ]);
 
-  if (isProjectLoading || isProjectFilterLoading) return null;
-
   return (
-    <>
+    <div className="min-h-[700px]">
       <div className="grid grid-cols-3 auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px] px-[1%]">
         {currentProjectData?.map(({ id, ...project }) => {
           return <ProjectListCard key={id} project={project} />;
@@ -53,9 +50,11 @@ export const ProjectListContent = ({
         <ProjectListPagination
           currentPage={currentPage}
           totalCount={projectList?.length}
-          onPageChange={(page) => setCurrentPage(page)}
+          setCurrentPage={setCurrentPage}
         />
-      ) : null}
-    </>
+      ) : (
+        <></>
+      )}
+    </div>
   );
 };

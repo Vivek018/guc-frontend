@@ -6,13 +6,13 @@ import search from "@/assets/icons/search.svg";
 
 export const ProjectListFilterContent = ({
   selectedCategoryId,
-  handleChangeCategory,
+  handleChangeCategoryValue,
   searchValue,
   handleChangeSearchValue,
 }) => {
   const { data: categories, isLoading: isCategoriesLoading } = useCategories();
 
-  if (isCategoriesLoading) return null;
+  if (isCategoriesLoading) return <></>;
 
   const handleSearchChange = (e) => {
     handleChangeSearchValue(e.target.value.replace(/[^a-z|0-9| ]/gi, ""));
@@ -33,7 +33,7 @@ export const ProjectListFilterContent = ({
           className="mr-2.5 border-2 border-green"
           variant={!selectedCategoryId ? "default" : "outline"}
           size="sm"
-          onClick={() => handleChangeCategory(null)}
+          onClick={() => handleChangeCategoryValue(null)}
         >
           All
         </Button>
@@ -45,7 +45,7 @@ export const ProjectListFilterContent = ({
               className="mr-2.5 border-2 border-green"
               variant={selectedCategoryId === id ? "default" : "outline"}
               size="sm"
-              onClick={() => handleChangeCategory(id)}
+              onClick={() => handleChangeCategoryValue(id)}
             >
               {title}
             </Button>

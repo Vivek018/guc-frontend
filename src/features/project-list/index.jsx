@@ -1,36 +1,28 @@
 import { Button } from "@/components/ui/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProjectListContent } from "./components/ProjectListContent";
 import { ProjectListFilterContent } from "./components/ProjectListFilterContent";
 import { ProjectListHeader } from "./components/ProjectListHeader";
+import { useDebounce } from "./hooks/useDobounce";
 
 export const ProjectList = () => {
-
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [searchValue, setSearchValue] = useState("");
+
+  const debouncedSearchValue = useDebounce(searchValue, 550);
 
   return (
     <div className="w-full flex flex-col items-center p-3">
       <ProjectListHeader />
       <ProjectListFilterContent
         selectedCategoryId={selectedCategoryId}
-        handleChangeCategory={(id) => {
-          setSelectedCategoryId(id);
-        }}
+        handleChangeCategoryValue={setSelectedCategoryId}
         searchValue={searchValue}
-        handleChangeSearchValue={(val) => {
-          setSearchValue(val);
-        }}
+        handleChangeSearchValue={setSearchValue}
       />
       <ProjectListContent
         selectedCategoryId={selectedCategoryId}
-        searchValue={searchValue}
-        handleChangeCategory={(id) => {
-          setSelectedCategoryId(id);
-        }}
-        handleChangeSearchValue={(val) => {
-          setSearchValue(val);
-        }}
+        searchValue={debouncedSearchValue}
       />
     </div>
   );

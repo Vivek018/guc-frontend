@@ -10,6 +10,7 @@ export const usePagination = ({
   totalCount,
   siblingCount = 1,
   currentPage,
+  setCurrentPage,
 }) => {
   return useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / PAGE_SIZE);

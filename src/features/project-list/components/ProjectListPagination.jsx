@@ -4,9 +4,10 @@ import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 import { DOTS } from "../constants";
 import { cn } from "@/utils/cn";
+import { useEffect } from "react";
 
 export const ProjectListPagination = ({
-  onPageChange,
+  setCurrentPage,
   totalCount,
   siblingCount = 1,
   currentPage,
@@ -19,23 +20,23 @@ export const ProjectListPagination = ({
   });
 
   if (currentPage === 0 || paginationRange?.length < 2) {
-    return null;
+    return <></>;
   }
 
   const onNext = (event) => {
     event.preventDefault();
-    onPageChange(currentPage + 1);
+    setCurrentPage(currentPage + 1);
   };
 
   const onPrevious = (event) => {
     event.preventDefault();
-    onPageChange(currentPage - 1);
+    setCurrentPage(currentPage - 1);
   };
 
   const handlePageChange = (event, pageNumber) => {
     event.preventDefault();
-    onPageChange(pageNumber);
-  }
+    setCurrentPage(pageNumber);
+  };
 
   let lastPage = paginationRange[paginationRange?.length - 1];
 
