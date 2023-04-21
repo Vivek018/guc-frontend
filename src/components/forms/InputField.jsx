@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const inputFieldVariants = cva(
-  "font-dm-sans text-lg bg-white flex justify-between items-center w-full px-1 mt-1 focus-within:text-dark/75 text-gray",
+  "text-lg bg-white flex justify-between items-center w-full px-1 mt-1 focus-within:text-dark/75 text-gray",
   {
     variants: {
       variant: {
@@ -20,40 +20,62 @@ const inputFieldVariants = cva(
 );
 
 const inputVariants = cva(
-  "bg-inherit outline-none flex-grow mx-2 h-8 text-md",
+  "bg-inherit outline-none flex-grow mx-2 h-8 text-md placeholder:text-inherit",
   {
     variants: {
       variant: {
         outline: "text-black",
-        search: "placeholder:text-inherit mx-6 text-xl",
-        'send-email': "text-black",
-        'login-email': "bg-linear-gradient placeholder:text-white/80 text-white text-2xl font-semibold",
+        search: "mx-6 text-xl",
+        "send-email": "text-black",
+        "login-email":
+          "bg-linear-gradient placeholder:text-white/80 text-white text-2xl font-semibold",
       },
     },
     defaultVariants: {
       variant: "outline",
     },
-  },
+  }
 );
 
-export const InputField = forwardRef(({ label = "", labelClassName, variant, type, name="name", className, inputClassName, buttonOrIcon, ...props }, ref) => {
+export const InputField = forwardRef(
+  (
+    {
+      label = "",
+      labelClassName,
+      variant,
+      type,
+      name = "name",
+      className,
+      inputClassName,
+      buttonOrIcon,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <>
-      {label ? <InputLabel text={label} htmlFor={name} variant={variant} className={labelClassName} /> : null}
-      <div className={cn(inputFieldVariants({variant, className}))}>
-        <input
-          name={name}
-          type={type}
-          className={cn(inputVariants({variant, inputClassName}))}
-          ref={ref}
-          autoComplete="off"
-          {...props}
-        />
-        {buttonOrIcon}
-      </div>
+        {label ? (
+          <InputLabel
+            text={label}
+            htmlFor={name}
+            variant={variant}
+            className={labelClassName}
+          />
+        ) : null}
+        <div className={cn(inputFieldVariants({ variant, className }))}>
+          <input
+            name={name}
+            type={type}
+            className={cn(inputVariants({ variant, className: inputClassName }))}
+            ref={ref}
+            autoComplete="off"
+            {...props}
+          />
+          {buttonOrIcon}
+        </div>
       </>
     );
-  },
+  }
 );
 
 InputField.displayName = "InputField";

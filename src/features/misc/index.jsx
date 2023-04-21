@@ -26,36 +26,39 @@ export const Misc = () => {
         <Button variant="outline" size="sm">
           Disaster
         </Button>
-        <Button size="icon">
-          ＋
-        </Button>
+        <Button size="icon">＋</Button>
       </div>
       <div className="bg-black p-4 flex w-full justify-center gap-4">
         <Button size="hero">Buy GUC Coin</Button>
-        <Button variant="ghost" size="sm">Watch Video ＋</Button>
+        <Button variant="ghost" size="sm">
+          Watch Video ＋
+        </Button>
       </div>
       <InputField
         variant="send-email"
         type="email"
         placeholder="Enter your email address"
-        buttonOrIcon={<Button size="icon">
-          <img src={sendMail} alt="Send Mail" />
-        </Button>}
+        buttonOrIcon={
+          <Button size="icon">
+            <img src={sendMail} alt="Send Mail" />
+          </Button>
+        }
       />
       <div className="w-full bg-gray flex flex-col p-4">
-        <InputField 
+        <InputField
           variant="search"
           placeholder="Find projects..."
           buttonOrIcon={<img className="mr-6" src={search} alt="search icon" />}
         />
-        <InputField 
+        <InputField
           labelClassName="mt-10 text-lg"
           placeholder="Enter Amount"
           label="Amount"
         />
-        <InputField 
+        <InputField
           variant="login-email"
           labelClassName="mt-10"
+          inputClassName="text-green font-bold"
           placeholder="Enter your email..."
           label="Email(optional)"
           buttonOrIcon={<LoginEmailIcon />}

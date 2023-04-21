@@ -6,7 +6,7 @@ import { subDays } from "date-fns";
 
 export const ProjectListCard = ({project}) => {
 
-  const { title, brief, category_id, total_donations, donation_amount_raised, donation_total_amount, latest_donation_time, published_date, thumbnail } = project
+  const { title, brief, category_id, total_donations, donation_amount_raised, donation_total_amount, latest_donation_time, published_date, thumbnail } = project;
 
   const formatted_published_date = formatDate(new Date());
   const formatted_donation_time = formatDifference(subDays(new Date(), 3));
