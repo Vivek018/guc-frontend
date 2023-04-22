@@ -15,7 +15,7 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     setCurrentPage(1);
   }, [selectedCategoryId, searchValue, setCurrentPage]);
 
-  const { data: projects, isFetching: isProjectFetching } = useProjectList();
+  const { data: projects, isLoading: isProjectLoading } = useProjectList();
 
   const currentProjectData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
@@ -23,7 +23,7 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     return projectList?.slice(firstPageIndex, lastPageIndex);
   }, [projectList, currentPage]);
 
-  const { data: projectFilteredList, isFetching: isProjectFilterFetching } =
+  const { data: projectFilteredList, isLoading: isProjectFilterLoading } =
     useProjectListFilter(selectedCategoryId, searchValue);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     setProjectList,
   ]);
 
-  if (isProjectFetching || isProjectFilterFetching) {
+  if (isProjectLoading || isProjectFilterLoading) {
     return (
       <div className="min-h-[700px]">
         <div className="grid grid-cols-3 auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px] px-[1%]">

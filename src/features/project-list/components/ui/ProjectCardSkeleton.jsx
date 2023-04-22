@@ -9,7 +9,7 @@ export const ProjectCardSkeleton = () => {
   return (
     <div className="w-[330px] h-[544px] bg-white shadow-card font-dm-sans rounded-b-md">
       <div className="w-full h-52 overflow-hidden z-10">
-        <Skeleton className="h-full z-0 object-fill rounded-t-md" />
+        <Skeleton className="h-full z-0 object-fill rounded-none rounded-t-md" />
       </div>
       <div className="flex flex-col px-5 pt-4 pb-6 justify-start">
         <div className="flex justify-between text-md">

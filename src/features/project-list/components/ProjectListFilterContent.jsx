@@ -3,6 +3,7 @@ import { useCategories } from "../hooks/useFetchHooks";
 import { InputField } from "@/components/forms/InputField";
 import { Button } from "@/components/ui/Button";
 import search from "@/assets/icons/search.svg";
+import { ProjectListFilterSkeleton } from "./ui/ProjectListFilterSkeleton";
 
 export const ProjectListFilterContent = ({
   selectedCategoryId,
@@ -12,7 +13,7 @@ export const ProjectListFilterContent = ({
 }) => {
   const { data: categories, isLoading: isCategoriesLoading } = useCategories();
 
-  if (isCategoriesLoading) return <></>;
+  if (isCategoriesLoading) return <ProjectListFilterSkeleton />;
 
   const handleSearchChange = (e) => {
     handleChangeSearchValue(e.target.value.replace(/[^a-z|0-9| ]/gi, ""));
@@ -38,7 +39,7 @@ export const ProjectListFilterContent = ({
           All
         </Button>
 
-        {categories.map(({ id, title }) => {
+        {categories?.map(({ id, title }) => {
           return (
             <Button
               key={id}
