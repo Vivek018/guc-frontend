@@ -9,25 +9,6 @@ import { queryClient } from "@/lib/react-query";
 import { Button } from "@/components/ui/Button";
 import { Loader } from "@/components/ui/Loader";
 
-const ErrorFallback = () => {
-  return (
-    <div
-      className="text-dark-green w-screen h-screen flex flex-col justify-center items-center"
-      role="alert"
-    >
-      <h2 className="text-lg font-semibold">Oops, something went wrong</h2>
-      <Button
-        variant="outline"
-        size="md"
-        className="mt-4"
-        onClick={() => window.location.reload()}
-      >
-        Refresh
-      </Button>
-    </div>
-  );
-};
-
 export const AppProvider = ({ children }) => {
   return (
     <Suspense
@@ -46,5 +27,24 @@ export const AppProvider = ({ children }) => {
         </HelmetProvider>
       </ErrorBoundary>
     </Suspense>
+  );
+};
+
+const ErrorFallback = ({ error }) => {
+  return (
+    <div
+      className="text-dark-green w-screen h-screen flex flex-col justify-center items-center"
+      role="alert"
+    >
+      <h2 className="text-lg font-semibold">{error?.message}</h2>
+      <Button
+        variant="outline"
+        size="md"
+        className="mt-4"
+        onClick={() => window.location.reload()}
+      >
+        Refresh
+      </Button>
+    </div>
   );
 };

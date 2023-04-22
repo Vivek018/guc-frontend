@@ -9,7 +9,7 @@ export const ProjectList = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [searchValue, setSearchValue] = useState("");
 
-  const debouncedSearchValue = useDebounce(searchValue, 550);
+  const {debouncedValue: debouncedSearchValue, loading: isSearching} = useDebounce(searchValue);
 
   return (
     <div className="w-full flex flex-col items-center p-3">
@@ -19,6 +19,7 @@ export const ProjectList = () => {
         handleChangeCategoryValue={setSelectedCategoryId}
         searchValue={searchValue}
         handleChangeSearchValue={setSearchValue}
+        isSearching={isSearching}
       />
       <ProjectListContent
         selectedCategoryId={selectedCategoryId}

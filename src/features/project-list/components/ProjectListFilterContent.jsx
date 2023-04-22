@@ -4,12 +4,15 @@ import { InputField } from "@/components/forms/InputField";
 import { Button } from "@/components/ui/Button";
 import search from "@/assets/icons/search.svg";
 import { ProjectListFilterSkeleton } from "./ui/ProjectListFilterSkeleton";
+import { Loader } from "@/components/ui/Loader";
+import { Spinner } from "./ui/Spinner";
 
 export const ProjectListFilterContent = ({
   selectedCategoryId,
   handleChangeCategoryValue,
   searchValue,
   handleChangeSearchValue,
+  isSearching,
 }) => {
   const { data: categories, isLoading: isCategoriesLoading } = useCategories();
 
@@ -27,7 +30,7 @@ export const ProjectListFilterContent = ({
         placeholder="Find Projects..."
         value={searchValue}
         onChange={handleSearchChange}
-        buttonOrIcon={<img className="mr-6" src={search} alt="search icon" />}
+        buttonOrIcon={<SearchIcon isSearching={isSearching} />}
       />
       <div className="flex mt-10">
         <Button
@@ -54,5 +57,13 @@ export const ProjectListFilterContent = ({
         })}
       </div>
     </div>
+  );
+};
+
+const SearchIcon = ({ isSearching }) => {
+  return isSearching ? (
+    <Spinner />
+  ) : (
+    <img className="mr-6" src={search} alt="search icon" />
   );
 };

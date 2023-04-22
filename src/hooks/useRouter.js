@@ -11,7 +11,6 @@ export const useRouter = () => {
   const params = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const match = useMatch();
 
   return useMemo(() => {
     return {
@@ -22,9 +21,8 @@ export const useRouter = () => {
         ...queryString.parse(location.search),
         ...params,
       },
-      match,
       location,
       navigate,
     };
-  }, [params, location, navigate, match]);
+  }, [params, location, navigate]);
 };

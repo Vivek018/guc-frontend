@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useProjectList, useProjectListFilter } from "../hooks/useFetchHooks";
 import { ProjectListCard } from "./ProjectListCard";
-import { useQueryClient } from "react-query";
 import { endPoints } from "@/constants";
 import { ProjectListPagination } from "./ProjectListPagination";
 import { PAGE_SIZE } from "../constants";
 import { ProjectCardSkeleton } from "./ui/ProjectCardSkeleton";
+import { Error } from "@/components/Error";
 
 export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
   const [projectList, setProjectList] = useState(null);
@@ -17,14 +17,16 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
 
   const { data: projects, isLoading: isProjectLoading } = useProjectList();
 
+  const { data: projectFilteredList, isLoading: isProjectFilterLoading } =
+    useProjectListFilter(selectedCategoryId, searchValue, {
+      enabled: !!selectedCategoryId || !!searchValue,
+    });
+
   const currentProjectData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
     const lastPageIndex = firstPageIndex + PAGE_SIZE;
     return projectList?.slice(firstPageIndex, lastPageIndex);
   }, [projectList, currentPage]);
-
-  const { data: projectFilteredList, isLoading: isProjectFilterLoading } =
-    useProjectListFilter(selectedCategoryId, searchValue);
 
   useEffect(() => {
     if (!selectedCategoryId && !searchValue) {
