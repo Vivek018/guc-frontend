@@ -5,48 +5,42 @@
 @layer base {
   @font-face {
     font-family: "Poppins";
-    src: url("./assets/fonts/poppins-regular.woff2") format("woff2"),
-      url("./assets/fonts/poppins-regular.woff") format("woff");
+    src: url("./assets/fonts/poppins-regular.woff2") format("woff2");
     font-weight: 900;
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: "Poppins";
-    src: url("./assets/fonts/poppins-regular.woff2") format("woff2"),
-      url("./assets/fonts/poppins-regular.woff") format("woff");
+    src: url("./assets/fonts/poppins-regular.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: "Poppins";
-    src: url("./assets/fonts/poppins-medium.woff") format("woff2"),
-      url("./assets/fonts/poppins-medium.woff") format("woff");
+    src: url("./assets/fonts/poppins-medium.woff2") format("woff2");
     font-weight: 500;
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: "Poppins";
-    src: url("./assets/fonts/poppins-semibold.woff2") format("woff2"),
-      url("./assets/fonts/poppins-semibold.woff") format("woff");
+    src: url("./assets/fonts/poppins-semibold.woff2") format("woff2");
     font-weight: 600;
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: "Poppins";
-    src: url("./assets/fonts/poppins-bold.woff2") format("woff2"),
-      url("./assets/fonts/poppins-bold.woff") format("woff");
+    src: url("./assets/fonts/poppins-bold.woff2") format("woff2");
     font-weight: 700;
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: "DMSans";
-    src: url("./assets/fonts/dmsans-regular.woff2") format("woff2"),
-      url("./assets/fonts/dmsans-regular.woff") format("woff");
+    src: url("./assets/fonts/dmsans-regular.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
