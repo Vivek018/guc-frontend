@@ -34,6 +34,9 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     } else {
       setProjectList(projectFilteredList);
     }
+    return () => {
+      setProjectList(null);
+    }
   }, [
     selectedCategoryId,
     searchValue,
