@@ -6,6 +6,8 @@ import search from "@/assets/icons/search.svg";
 import { ProjectListFilterSkeleton } from "./ui/ProjectListFilterSkeleton";
 import { Loader } from "@/components/ui/Loader";
 import { Spinner } from "./ui/Spinner";
+import { endPoints } from "@/constants";
+import { ErrorHandler } from "@/components/ErrorHandler";
 
 export const ProjectListFilterContent = ({
   selectedCategoryId,
@@ -14,48 +16,63 @@ export const ProjectListFilterContent = ({
   handleChangeSearchValue,
   isSearching,
 }) => {
-  const { data: categories, isLoading: isCategoriesLoading } = useCategories();
+  const {
+    data: categories,
+    isLoading: isCategoriesLoading,
+    isError: isCategoriesError,
+    error: categoriesError,
+  } = useCategories();
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value.replace(/[^a-z|0-9| ]/gi, "");
+    handleChangeSearchValue(value);
+  };
 
   if (isCategoriesLoading) return <ProjectListFilterSkeleton />;
 
-  const handleSearchChange = (e) => {
-    handleChangeSearchValue(e.target.value.replace(/[^a-z|0-9| ]/gi, ""));
-  };
-
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div className="w-full flex flex-col items-center mt-10">
       <InputField
         variant="search"
-        className="bg-search-gray w-[785px]"
+        className="bg-search-gray max-w-[785px] max-tablet:w-[500px] max-mobile:w-[385px] max-small-mobile:w-[300px] max-small-mobile:text-sm"
         placeholder="Find Projects..."
         value={searchValue}
         onChange={handleSearchChange}
         buttonOrIcon={<SearchIcon isSearching={isSearching} />}
       />
-      <div className="flex mt-10">
-        <Button
-          className="mr-2.5 border-2 border-green"
-          variant={!selectedCategoryId ? "default" : "outline"}
-          size="sm"
-          onClick={() => handleChangeCategoryValue(null)}
-        >
-          All
-        </Button>
+      {!isCategoriesError ? (
+        <div className="flex mt-10 max-tablet:hidden">
+          <Button
+            className="mr-2.5 max-desktop:mr-1.5 max-desktop:text-md max-desktop:px-3 border-2 border-green"
+            variant={!selectedCategoryId ? "default" : "outline"}
+            size="sm"
+            onClick={() => handleChangeCategoryValue(null)}
+          >
+            All
+          </Button>
 
-        {categories?.map(({ id, title }) => {
-          return (
-            <Button
-              key={id}
-              className="mr-2.5 border-2 border-green"
-              variant={selectedCategoryId === id ? "default" : "outline"}
-              size="sm"
-              onClick={() => handleChangeCategoryValue(id)}
-            >
-              {title}
-            </Button>
-          );
-        })}
-      </div>
+          {categories?.map(({ id, title }) => {
+            return (
+              <Button
+                key={id}
+                className="mr-2.5 max-desktop:mr-1.5 max-desktop:text-md max-desktop:px-3 border-2 border-green"
+                variant={selectedCategoryId === id ? "default" : "outline"}
+                size="sm"
+                onClick={() => handleChangeCategoryValue(id)}
+              >
+                {title}
+              </Button>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="w-full px-40 max-tablet:hidden">
+          <ErrorHandler
+            errorMessage={categoriesError?.message}
+            queryKey={[endPoints.categories]}
+          />
+        </div>
+      )}
     </div>
   );
 };

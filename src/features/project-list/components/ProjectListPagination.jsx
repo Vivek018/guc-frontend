@@ -41,7 +41,12 @@ export const ProjectListPagination = ({
   let lastPage = paginationRange[paginationRange?.length - 1];
 
   return (
-    <div className={cn("flex justify-center items-center my-11", className)}>
+    <div
+      className={cn(
+        "flex justify-center items-center mx-auto my-11 max-tablet:w-[500px] max-mobile:w-[385px] max-small-mobile:w-[320px]",
+        className
+      )}
+    >
       <Button
         variant="ghost"
         size="icon"
@@ -59,7 +64,7 @@ export const ProjectListPagination = ({
               variant="ghost"
               size="icon"
               disabled={true}
-              className="text-gray ml-2"
+              className="text-gray ml-2 w-2"
             >
               &#8230;
             </Button>
@@ -72,7 +77,7 @@ export const ProjectListPagination = ({
             size="icon"
             className={`${
               pageNumber !== currentPage ? "text-gray" : null
-            } ml-2`}
+            } ml-2 max-mobile:ml-1 max-mobile:text-md max-mobile:w-4 max-mobile:h-4`}
             onClick={(e) => handlePageChange(e, pageNumber)}
           >
             {pageNumber}

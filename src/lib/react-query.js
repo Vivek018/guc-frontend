@@ -2,7 +2,6 @@ import { QueryClient } from "react-query";
 
 const queryConfig = {
   queries: {
-    useErrorBoundary: true,
     refetchOnWindowFocus: false,
     retry: false,
   },

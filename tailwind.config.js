@@ -3,10 +3,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      monitor: "1800px",
-      desktop: "1200px",
-      tablet: "900px",
-      mobile: "600px",
+      monitor: { max: "1800px" },
+      desktop: { max: "1200px" },
+      tablet: { max: "900px" },
+      mobile: { max: "600px" },
+      "small-mobile": { max: "400px" },
+      "max-monitor": { max: "1800px" },
+      "max-desktop": { max: "1200px" },
+      "max-tablet": { max: "900px" },
+      "max-mobile": { max: "600px" },
+      "max-small-mobile": { max: "400px" },
     },
     colors: {
       transparent: "none",
@@ -23,6 +29,7 @@ export default {
       green: "#17C5A5",
       "dark-green": "#008370",
       "light-green": "#F1FAF9",
+      red: "#CC0000",
     },
     boxShadow: {
       none: "none",

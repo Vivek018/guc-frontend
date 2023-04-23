@@ -21,7 +21,7 @@ export const ProjectListCard = ({ project }) => {
   const formatted_donation_time = formatDifference(subDays(new Date(), 3));
 
   return (
-    <div className="w-[330px] h-[544px] bg-white shadow-card font-dm-sans rounded-b-md">
+    <div className="w-[330px] max-mobile:w-[330px] max-small-mobile:w-[280px] h-[544px] max-desktop:w-[280px] mx-auto bg-white shadow-card font-dm-sans rounded-b-md">
       <div className="w-full h-52 overflow-hidden z-10">
         <img
           className="h-full z-0 object-fill rounded-t-md"
