@@ -40,10 +40,10 @@ export const DialogClose = ({close, hideClose}) => {
   );
 }
 
-export const Modal = forwardRef(({ className, children, isOpen, close, hideClose = false, ...props }, ref) => (
+export const Modal = forwardRef(({ className, overlayClassName, children, isOpen, close, hideClose = false, ...props }, ref) => (
   <DialogRoot open={isOpen}>
   <DialogPortal>
-    <DialogOverlay onClick={close} />
+    <DialogOverlay onClick={close} className={overlayClassName} />
     <DialogPrimitive.Content
       ref={ref}
       className={cn(

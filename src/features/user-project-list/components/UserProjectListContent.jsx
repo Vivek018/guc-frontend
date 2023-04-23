@@ -12,6 +12,8 @@ import {
   ListPagination,
   useListContent,
 } from "@/features/list";
+import { useDisclosure } from "@/hooks/useDisclosure";
+import { CertificateDialog } from "./CertificateDialog/CertificateDialog";
 
 export const UserProjectListContent = ({ selectedCategoryId, searchValue }) => {
   const {
@@ -42,9 +44,11 @@ export const UserProjectListContent = ({ selectedCategoryId, searchValue }) => {
     filteredList: userProjectFilteredList,
   });
 
-  const handleCardButtonClick = () => {
-    return null;
-  };
+  const {
+    isOpen: isOpenCertificate,
+    open: openCertificate,
+    close: closeCertificate,
+  } = useDisclosure();
 
   if (isUserProjectLoading || isUserProjectFilterLoading) {
     return (
@@ -91,7 +95,7 @@ export const UserProjectListContent = ({ selectedCategoryId, searchValue }) => {
               footerButton={
                 <MultiButton
                   buttonText="View Certificate"
-                  onClick={handleCardButtonClick}
+                  onClick={openCertificate}
                   title={userProject?.title}
                   id={userProject?.id}
                 />
@@ -109,6 +113,10 @@ export const UserProjectListContent = ({ selectedCategoryId, searchValue }) => {
       ) : (
         <></>
       )}
+      <CertificateDialog
+        isOpenCertificate={isOpenCertificate}
+        closeCertificate={closeCertificate}
+      />
     </div>
   );
 };
