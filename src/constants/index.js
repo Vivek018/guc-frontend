@@ -13,4 +13,5 @@ export const endPoints = Object.freeze({
   user: "auth/me",
   categories: "categories",
   projectList: "projects",
+  userProjectList: "userProjects",
 });

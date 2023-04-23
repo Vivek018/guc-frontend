@@ -5,7 +5,7 @@ import share from "@/assets/icons/share.svg";
 
 export const MultiButton = ({ className, onClick = () => {}, buttonText, title, id }) => {
   return (
-    <div className={cn("mt-6 flex gap-2", className)}>
+    <div className={cn("flex justify-center gap-2", className)}>
       <RWebShare
         data={{
           text: `Project - ${title}`,
@@ -13,7 +13,7 @@ export const MultiButton = ({ className, onClick = () => {}, buttonText, title, 
           title: "Share this project",
         }}
       >
-        <Button variant="outline" size="icon">
+        <Button type="button" variant="outline" size="icon">
           <img src={share} alt="share icon" />
         </Button>
       </RWebShare>

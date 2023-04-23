@@ -40,7 +40,7 @@ export const publicRoutes = [
     children: [
       { index: true, element: <Misc /> },
       { path: routes.projects, element: <ProjectList /> },
-      { path: routes.project, element: <Project /> },
+      { path: `${routes.project}/:id`, element: <Project /> },
       { path: routes.userProjects, element: <UserProjectList /> },
       { path: "*", element: <Navigate to="." /> },
     ],
