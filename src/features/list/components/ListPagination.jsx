@@ -4,9 +4,8 @@ import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 import { DOTS } from "../constants";
 import { cn } from "@/utils/cn";
-import { useEffect } from "react";
 
-export const ProjectListPagination = ({
+export const ListPagination = ({
   setCurrentPage,
   totalCount,
   siblingCount = 1,

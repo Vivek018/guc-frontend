@@ -1,15 +1,14 @@
-import { useState } from "react";
-import { useCategories } from "../hooks/useFetchHooks";
+import search from "@/assets/icons/search.svg";
+import { endPoints } from "@/constants";
+
 import { InputField } from "@/components/forms/InputField";
 import { Button } from "@/components/ui/Button";
-import search from "@/assets/icons/search.svg";
-import { ProjectListFilterSkeleton } from "./ui/ProjectListFilterSkeleton";
-import { Loader } from "@/components/ui/Loader";
-import { Spinner } from "./ui/Spinner";
-import { endPoints } from "@/constants";
+import { ListFilterSkeleton } from "./ListFilterSkeleton";
+import { Spinner } from "@/components/ui/Spinner";
 import { ErrorHandler } from "@/components/ErrorHandler";
+import { useCategories } from "../hooks/useFetchHooks";
 
-export const ProjectListFilterContent = ({
+export const ListFilterContent = ({
   selectedCategoryId,
   handleChangeCategoryValue,
   searchValue,
@@ -28,7 +27,7 @@ export const ProjectListFilterContent = ({
     handleChangeSearchValue(value);
   };
 
-  if (isCategoriesLoading) return <ProjectListFilterSkeleton />;
+  if (isCategoriesLoading) return <ListFilterSkeleton />;
 
   return (
     <div className="w-full flex flex-col items-center mt-10">

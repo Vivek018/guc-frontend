@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PAGE_SIZE } from "../constants";
 
-export const useList = ({
+export const useListContent = ({
   selectedCategoryId,
   searchValue,
   normalList,
@@ -29,13 +29,7 @@ export const useList = ({
     return () => {
       setList(null);
     };
-  }, [
-    selectedCategoryId,
-    searchValue,
-    normalList,
-    filteredList,
-    setList,
-  ]);
+  }, [selectedCategoryId, searchValue, normalList, filteredList, setList]);
 
   return {
     currentListData,

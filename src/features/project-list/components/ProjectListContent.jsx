@@ -1,12 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
 import { useProjectList, useProjectListFilter } from "../hooks/useFetchHooks";
-import { ProjectListCard } from "./ProjectListCard";
 import { endPoints } from "@/constants";
-import { ProjectListPagination } from "./ProjectListPagination";
-import { PAGE_SIZE } from "../constants";
-import { ProjectCardSkeleton } from "./ui/ProjectCardSkeleton";
+
 import { ErrorHandler } from "@/components/ErrorHandler";
-import { useList } from "../hooks/useListContent";
+import { MultiButton } from "@/components/MultiButton";
+import { CardSkeleton, ListCard, ListPagination, useListContent } from "@/features/list";
 
 export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
   const {
@@ -25,19 +22,28 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
     enabled: !!selectedCategoryId || !!searchValue,
   });
 
-  const { currentPage, setCurrentPage, currentListData: currentProjectData, list: projectList } = useList({
+  const {
+    currentPage,
+    setCurrentPage,
+    currentListData: currentProjectData,
+    list: projectList,
+  } = useListContent({
     selectedCategoryId,
     searchValue,
     normalList: projects,
     filteredList: projectFilteredList,
   });
 
+  const handleCardButtonClick = () => {
+    return null;
+  };
+
   if (isProjectLoading || isProjectFilterLoading) {
     return (
       <div className="min-h-[700px]">
-        <div className="grid grid-cols-3 max-desktop:gap-x-[30px] max-tablet:grid-cols-2 max-mobile:grid-cols-1 auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px] px-[1%]">
+        <div className="grid grid-cols-3 max-desktop:gap-x-[30px] max-tablet:grid-cols-2 max-mobile:grid-cols-1 mx-auto auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px]">
           {Array.from({ length: 3 }).map((val, index) => (
-            <ProjectCardSkeleton key={index} />
+            <CardSkeleton key={index} />
           ))}
         </div>
       </div>
@@ -68,13 +74,26 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
 
   return (
     <div className="min-h-[700px]">
-      <div className="grid grid-cols-3 max-desktop:gap-x-[30px] max-tablet:grid-cols-2 max-mobile:grid-cols-1 mx-auto auto-rows-auto mt-16 gap-x-[60px] gap-y-[30px]">
-        {currentProjectData?.map(({ id, ...project }) => {
-          return <ProjectListCard key={id} project={project} />;
+      <div className="grid grid-cols-3 max-desktop:gap-x-[30px] max-tablet:grid-cols-2 max-mobile:grid-cols-1 mx-auto auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px]">
+        {currentProjectData?.map((project) => {
+          return (
+            <ListCard
+              key={project?.id}
+              element={project}
+              footerButton={
+                <MultiButton
+                  buttonText="Donate now"
+                  onClick={handleCardButtonClick}
+                  title={project?.title}
+                  id={project?.id}
+                />
+              }
+            />
+          );
         })}
       </div>
       {projectList ? (
-        <ProjectListPagination
+        <ListPagination
           currentPage={currentPage}
           totalCount={projectList?.length}
           setCurrentPage={setCurrentPage}

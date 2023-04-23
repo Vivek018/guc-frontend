@@ -1,4 +1,4 @@
-import { ListTitle } from "@/components/list/ListTitle";
+import { ListTitle } from "@/features/list";
 
 export const ProjectListHeader = () => {
   return (

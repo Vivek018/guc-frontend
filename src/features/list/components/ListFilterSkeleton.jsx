@@ -1,7 +1,6 @@
 import { Skeleton } from "@/components/ui/Skeleton";
-import React from "react";
 
-export const ProjectListFilterSkeleton = () => {
+export const ListFilterSkeleton = () => {
   return (
     <div className="flex flex-col items-center mt-10">
       <Skeleton className="py-8 rounded-full w-[785px] max-tablet:w-[500px] max-mobile:w-[385px] max-small-mobile:w-[300px] max-small-mobile:text-sm" />

@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
-import share from "@/assets/icons/share.svg";
 import { formatDate, formatDifference } from "@/utils/format";
 import { subDays } from "date-fns";
 
-export const ProjectListCard = ({ project }) => {
+export const ListCard = ({ element, footerButton }) => {
+
   const {
+    id,
     title,
     brief,
     category_id,
@@ -15,7 +15,7 @@ export const ProjectListCard = ({ project }) => {
     latest_donation_time,
     published_date,
     thumbnail,
-  } = project;
+  } = element;
 
   const formatted_published_date = formatDate(new Date());
   const formatted_donation_time = formatDifference(subDays(new Date(), 3));
@@ -46,14 +46,7 @@ export const ProjectListCard = ({ project }) => {
           </span>
           <span>raised of ${donation_total_amount}</span>
         </p>
-        <div className="mt-6 flex gap-2">
-          <Button variant="outline" size="icon">
-            <img src={share} alt="share icon" />
-          </Button>
-          <Button variant="outline" size="md">
-            Donate now
-          </Button>
-        </div>
+        {footerButton}
       </div>
     </div>
   );

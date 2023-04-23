@@ -5,10 +5,6 @@ const categoryId = "category_id";
 const title = "title";
 const brief = "brief";
 
-export const fetchCategories = () => {
-  return axios.get(endPoints.categories);
-};
-
 export const fetchProjectList = () => {
   return axios.get(endPoints.projectList);
 };
