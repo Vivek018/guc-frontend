@@ -22,7 +22,7 @@ export const DialogOverlay = forwardRef(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-dim backdrop-blur-sm",
+      "relative w-full h-full z-50 bg-dim backdrop-blur-sm grid place-items-center overflow-scroll",
       className
     )}
     {...props}
@@ -32,7 +32,7 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 export const DialogClose = ({close, hideClose}) => {
   return (
-    !hideClose ? <DialogPrimitive.Close onClick={close} className="absolute right-5 top-4 w-9 h-9 rounded-full bg-[#E6E6E6] grid place-content-center opacity-70 transition-all hover:opacity-100">
+    !hideClose ? <DialogPrimitive.Close onClick={close} className="absolute right-4 top-4 w-9 h-9 rounded-full bg-[#E6E6E6] grid place-content-center opacity-70 transition-all hover:opacity-100 disabled:pointer-events-none">
           <img src={cancel} alt="cancel" />
         <span className="sr-only">Close</span>
     </DialogPrimitive.Close>
@@ -40,21 +40,35 @@ export const DialogClose = ({close, hideClose}) => {
   );
 }
 
-export const Modal = forwardRef(({ className, overlayClassName, children, isOpen, close, hideClose = false, ...props }, ref) => (
-  <DialogRoot open={isOpen}>
-  <DialogPortal>
-    <DialogOverlay onClick={close} className={overlayClassName} />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        "fixed z-50 grid px-16 rounded-pop-up bg-white",
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <DialogClose close={close} hideClose={hideClose} />
-    </DialogPrimitive.Content>
-  </DialogPortal>
-  </DialogRoot>
-));
+export const Modal = forwardRef(
+  (
+    {
+      className,
+      overlayClassName,
+      children,
+      isOpen,
+      close,
+      hideClose = false,
+      ...props
+    },
+    ref
+  ) => (
+    <DialogRoot open={isOpen}>
+      <DialogPortal>
+        <DialogOverlay>
+          <DialogPrimitive.Content
+            ref={ref}
+            className={cn(
+              "relative z-50 grid px-12 m-16 max-tablet:mx-4 max-tablet:px-4 max-small-mobile:px-1 rounded-pop-up bg-white",
+              className
+            )}
+            {...props}
+          >
+            {children}
+            <DialogClose close={close} hideClose={hideClose} />
+          </DialogPrimitive.Content>
+        </DialogOverlay>
+      </DialogPortal>
+    </DialogRoot>
+  )
+);
