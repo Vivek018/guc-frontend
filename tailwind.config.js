@@ -7,7 +7,7 @@ export default {
       desktop: { min: "1200px" },
       tablet: { min: "900px" },
       mobile: { min: "600px" },
-      "small-mobile": { max: "400px" },
+      "small-mobile": { min: "400px" },
       "max-monitor": { max: "1800px" },
       "max-desktop": { max: "1200px" },
       "max-tablet": { max: "900px" },

@@ -3,7 +3,7 @@ import { endPoints } from "@/constants";
 
 import { ErrorHandler } from "@/components/ErrorHandler";
 import { MultiButton } from "@/components/MultiButton";
-import { CardSkeleton, ListCard, ListPagination, useListContent } from "@/features/list";
+import { ListCardSkeleton, ListCard, ListPagination, useListContent } from "@/features/list";
 
 export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
   const {
@@ -43,7 +43,7 @@ export const ProjectListContent = ({ selectedCategoryId, searchValue }) => {
       <div className="min-h-[700px]">
         <div className="grid grid-cols-3 max-desktop:gap-x-[30px] max-tablet:grid-cols-2 max-mobile:grid-cols-1 mx-auto auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px]">
           {Array.from({ length: 3 }).map((val, index) => (
-            <CardSkeleton key={index} />
+            <ListCardSkeleton key={index} />
           ))}
         </div>
       </div>

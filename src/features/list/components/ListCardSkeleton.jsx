@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/Skeleton";
 
-export const CardSkeleton = () => {
+export const ListCardSkeleton = () => {
   return (
     <div className="w-[330px] max-mobile:w-[330px] max-small-mobile:w-[280px] h-[544px] max-desktop:w-[280px] bg-white shadow-card font-dm-sans rounded-b-md">
       <div className="w-full h-52 overflow-hidden z-10">

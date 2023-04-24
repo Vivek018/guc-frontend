@@ -7,7 +7,7 @@ import {
 import { ErrorHandler } from "@/components/ErrorHandler";
 import { MultiButton } from "@/components/MultiButton";
 import {
-  CardSkeleton,
+  ListCardSkeleton,
   ListCard,
   ListPagination,
   useListContent,
@@ -55,7 +55,7 @@ export const UserProjectListContent = ({ selectedCategoryId, searchValue }) => {
       <div className="min-h-[700px]">
         <div className="grid grid-cols-3 max-desktop:gap-x-[30px] max-tablet:grid-cols-2 max-mobile:grid-cols-1 mx-auto auto-rows-fr mt-16 gap-x-[60px] gap-y-[30px]">
           {Array.from({ length: 3 }).map((val, index) => (
-            <CardSkeleton key={index} />
+            <ListCardSkeleton key={index} />
           ))}
         </div>
       </div>
