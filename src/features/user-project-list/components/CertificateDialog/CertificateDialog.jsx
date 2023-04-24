@@ -1,7 +1,7 @@
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { CertificateDialogContent } from "./CertificateDialogContent";
 import { Modal } from "@/components/ui/Modal";
-import { DownloadDialogContent } from "../DownloadDialog/DownloadDialogContent";
+import { DownloadDialog } from "../DownloadDialog/DownloadDialog";
 
 export const CertificateDialog = ({ isOpenCertificate, closeCertificate }) => {
   const {
@@ -10,18 +10,19 @@ export const CertificateDialog = ({ isOpenCertificate, closeCertificate }) => {
     isOpen: isOpenDownload,
   } = useDisclosure();
 
-  return (
+  return !isOpenDownload ? (
     <Modal
-      className={!isOpenDownload ? "rounded-b-none" : null}
-      isOpen={isOpenDownload || isOpenCertificate}
-      close={!isOpenDownload ? closeCertificate : closeDownload}
-      hideClose={!isOpenDownload}
+      className="rounded-b-none"
+      isOpen={isOpenCertificate}
+      close={closeCertificate}
+      hideClose={true}
     >
-      {!isOpenDownload ? (
-        <CertificateDialogContent handleDownloadClick={openDownload} />
-      ) : (
-        <DownloadDialogContent />
-      )}
+      <CertificateDialogContent handleDownloadClick={openDownload} />
     </Modal>
+  ) : (
+    <DownloadDialog
+      isOpenDownload={isOpenDownload}
+      closeDownload={closeDownload}
+    />
   );
 };

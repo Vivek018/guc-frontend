@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const buttonVariants = cva(
-  "font-dm-sans h-11 flex justify-center items-center text-lg transition-all outline-transparent disabled:pointer-events-none",
+  "font-dm-sans h-11 flex justify-center items-center text-lg transition-all disabled:pointer-events-none",
   {
     variants: {
       variant: {

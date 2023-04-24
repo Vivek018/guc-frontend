@@ -32,7 +32,7 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 export const DialogClose = ({close, hideClose}) => {
   return (
-    !hideClose ? <DialogPrimitive.Close onClick={close} className="absolute right-5 top-4 w-9 h-9 rounded-full bg-[#E6E6E6] grid place-content-center opacity-70 transition-all hover:opacity-100 disabled:pointer-events-none">
+    !hideClose ? <DialogPrimitive.Close onClick={close} className="absolute right-5 top-4 w-9 h-9 rounded-full bg-[#E6E6E6] grid place-content-center opacity-70 transition-all hover:opacity-100">
           <img src={cancel} alt="cancel" />
         <span className="sr-only">Close</span>
     </DialogPrimitive.Close>
