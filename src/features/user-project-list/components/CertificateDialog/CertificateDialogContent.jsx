@@ -73,9 +73,9 @@ const CertificateDialogButton = ({ text, onClick, icon }) => {
 
 const FooterCirclers = () => {
   return (
-    <div className="absolute flex -bottom-3">
+    <div className="absolute flex bottom-[0.25px]">
       {Array.from({ length: 13 }).map((val, index) => (
-        <div key={index} className={`bg-dim w-6 h-6 rounded-full mr-2.5`} />
+        <div key={index} className={`bg-dim overflow-hidden w-6 h-3 rounded-t-full mr-2.5`} />
       ))}
     </div>
   );
