@@ -17,7 +17,7 @@ export const ErrorHandler = ({errorMessage, queryKey}) => {
       <h2 className="text-2xl font-semibold max-mobile:text-xl max-small-mobile:text-lg-line-height text-center">
         {errorMessage}
       </h2>
-      <div className="mt-8 flex justify-center items-center space-4 max-mobile:flex-col max-mobile:space-y-2">
+      <div className="mt-8 flex justify-center items-center gap-4 max-mobile:flex-col max-mobile:space-y-2">
         <Button
           variant="ghost"
           className="text-dark"
