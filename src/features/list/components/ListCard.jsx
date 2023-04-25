@@ -28,7 +28,8 @@ export const ListCard = ({ element, footerButton }) => {
           <img
             className="h-full z-0 object-fill rounded-t-md"
             src={thumbnail}
-            alt=""
+            alt={"Thumbail" - title}
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col px-5 pt-4 pb-6 justify-start">
