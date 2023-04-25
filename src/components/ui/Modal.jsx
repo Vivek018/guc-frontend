@@ -55,9 +55,10 @@ export const Modal = forwardRef(
   ) => (
     <DialogRoot open={isOpen}>
       <DialogPortal>
-        <DialogOverlay>
+        <DialogOverlay onClick={close} className={overlayClassName}>
           <DialogPrimitive.Content
             ref={ref}
+            onClick={e => e.stopPropagation()}
             className={cn(
               "relative z-50 grid px-12 m-16 max-tablet:mx-4 max-tablet:px-4 max-small-mobile:px-1 rounded-pop-up bg-white",
               className
