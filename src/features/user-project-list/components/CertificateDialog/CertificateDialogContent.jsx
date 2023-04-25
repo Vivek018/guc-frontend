@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
 import { Separator } from "@/components/ui/Separator";
 
-import tick from "../../assets/icons/tick.svg";
-import download from "../../assets/icons/download.svg";
-import convert from "../../assets/icons/convert.svg";
+import tick from "@/assets/icons/tick.svg";
+import download from "@/assets/icons/download.svg";
+import convert from "@/assets/icons/convert.svg";
 
 export const CertificateDialogContent = ({ handleDownloadClick }) => {
   return (

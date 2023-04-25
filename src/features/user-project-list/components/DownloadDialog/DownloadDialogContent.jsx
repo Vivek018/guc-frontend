@@ -1,6 +1,5 @@
 import { InputField } from "@/components/forms/InputField";
 import { Button } from "@/components/ui/Button";
-import React from "react";
 
 export const DownloadDialogContent = () => {
   return (
