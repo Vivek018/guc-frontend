@@ -15,7 +15,6 @@ export const CertificateDialog = ({ isOpenCertificate, closeCertificate }) => {
       className="rounded-b-none"
       isOpen={isOpenCertificate}
       close={closeCertificate}
-      hideClose={true}
     >
       <CertificateDialogContent handleDownloadClick={openDownload} />
     </Modal>

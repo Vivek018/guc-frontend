@@ -12,10 +12,10 @@ export const DownloadDialogContent = () => {
         labelClassName="mt-16 mx-auto w-[96%] max-mobile:w-[80%] max-small-mobile:text-xs"
         variant="outline"
         placeholder="Your full name"
-        className="mx-auto w-[96%] max-mobile:w-[80%] max-small-mobile:text-sm"
+        className="mx-auto w-[96%] max-mobile:w-[80%] max-small-mobile:text-sm bg-card"
       />
       <Button
-        className="mt-6 mb-11 mx-auto w-[96%] max-mobile:w-[80%] max-small-mobile:text-md"
+        className="mt-6 mb-11 mx-auto w-[96%] max-mobile:w-[80%] max-small-mobile:text-md bg-card"
         variant="outline"
         size="md"
       >

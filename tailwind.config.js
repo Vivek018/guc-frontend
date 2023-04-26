@@ -30,6 +30,7 @@ export default {
       "dark-green": "#008370",
       "light-green": "#F1FAF9",
       red: "#CC0000",
+      card: "#EFF3F2",
     },
     boxShadow: {
       none: "none",
