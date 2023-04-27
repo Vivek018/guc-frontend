@@ -4,12 +4,9 @@ import { forwardRef } from "react";
 import cancel from "@/assets/icons/cancel.svg";
 
 const DialogRoot = DialogPrimitive.Root;
+const DialogComponent = DialogPrimitive.Content;
 
-const DialogPortal = ({
-  className,
-  children,
-  ...props
-}) => (
+const DialogPortal = ({ className, children, ...props }) => (
   <DialogPrimitive.Portal className={cn(className)} {...props}>
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {children}
@@ -22,7 +19,7 @@ export const DialogOverlay = forwardRef(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "relative w-full h-full z-50 bg-dim backdrop-blur-sm grid place-items-center overflow-scroll",
+      "relative w-full h-full z-50 bg-dim backdrop-blur-sm grid place-items-center overflow-scroll transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in",
       className
     )}
     {...props}
@@ -30,7 +27,7 @@ export const DialogOverlay = forwardRef(({ className, ...props }, ref) => (
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-export const DialogClose = ({close, hideClose}) => {
+export const DialogClose = ({ close, hideClose }) => {
   return !hideClose ? (
     <DialogPrimitive.Close
       onClick={close}
@@ -44,7 +41,7 @@ export const DialogClose = ({close, hideClose}) => {
       <span className="sr-only">Close</span>
     </DialogPrimitive.Close>
   ) : null;
-}
+};
 
 export const Modal = forwardRef(
   (
@@ -64,9 +61,9 @@ export const Modal = forwardRef(
         <DialogOverlay onClick={close} className={overlayClassName}>
           <DialogPrimitive.Content
             ref={ref}
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
             className={cn(
-              "relative z-50 grid m-16 max-tablet:mx-4 px-4 max-small-mobile:px-1 rounded-pop-up bg-card",
+              "relative z-50 grid m-16 max-tablet:mx-4 px-4 max-small-mobile:px-1 rounded-pop-up bg-card animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 data-[state=open]:sm:slide-in-from-bottom-0",
               className
             )}
             {...props}
